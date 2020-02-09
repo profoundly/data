@@ -1,17 +1,15 @@
-name: 'Mirroring To Gitee'
+name: 'Backup To Gitee'
 
 on: [push, delete]
 
 jobs:
-  to_gitee:
+  backup_to_gitee:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Mirroring
-        uses: pixta-dev/repository-mirroring-action@v1
-        with:
-          target_repo_url:
-            git@gitee.com:sculpta/test.git
-          ssh_private_key:
-            ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+        uses: actions/checkout@master
+      - name: Backup
+        uses: jenkins-zh/git-backup-actions@v0.0.1
+        env:
+          GIT_DEPLOY_KEY: ${{ secrets.GIT_DEPLOY_KEY }}
+          TARGET_GIT: "git@gitee.com:sculpta/data.git"
