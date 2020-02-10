@@ -1,0 +1,17 @@
+name: Backup Git Repository
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  git-repo-backup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Backup
+      run: bash main.sh
+      env:
+        GIT_DEPLOY_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
+        TARGET_GIT: "git@gitee.com:sculpta/test.git"
