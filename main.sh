@@ -1,10 +1,10 @@
 #!/bin/bash
 
-mkdir /root/.ssh
-ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts && \
-ssh-keyscan -t rsa gitee.com >> /root/.ssh/known_hosts && \
-echo "${GIT_DEPLOY_KEY}" > /root/.ssh/id_rsa && \
-chmod 400 /root/.ssh/id_rsa
+mkdir -p /root/.ssh
+sudo ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts && \
+sudo ssh-keyscan -t rsa gitee.com >> /root/.ssh/known_hosts && \
+sudo echo "${GIT_DEPLOY_KEY}" > /root/.ssh/id_rsa && \
+sudo chmod 400 /root/.ssh/id_rsa
 
 echo $GITHUB_ACTOR
 
