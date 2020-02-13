@@ -1,18 +1,29 @@
-name: Backup Git Repository
+name: Push to gitee
 
-on:
+on: 
   push:
     branches:
-    - master
-
+      - master
 jobs:
-  git-repo-backup:
+  backup:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: Backup
-      uses: jenkins-zh/git-backup-actions@v0.0.1
-      env:
-        GIT_DEPLOY_KEY: ${{ secrets.GIT_DEPLOY_KEY }}
-        TARGET_GIT: "git@gitee.com:sculpta/test.git"
+    - name: Set SSH Key
+      env: 
+        SSH_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
+        SSH_KEY_PUB: ${{ secrets.GITEE_PUBLIC_KEY }}
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H gitee.com >> ~/.ssh/known_hosts
+        echo ${SSH_KEY} > ~/.ssh/id_rsa
+        sed -i -e "s#\\\\n#\n#g" ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        echo ${SSH_KEY_PUB} > ~/.ssh/id_rsa.pub
+        chmod 600 ~/.ssh/id_rsa.pub
+     
+    - name: Push to gitee
+      run: |
+        git switch -c master
+        git remote add git@gitee.com:sculpta/data.git
