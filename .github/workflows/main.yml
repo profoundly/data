@@ -25,5 +25,6 @@ jobs:
      
     - name: Push to gitee
       run: |
-        git switch -c master
+        git checkout master
         git remote add git@gitee.com:sculpta/data.git
+        git push --set-upstream gitee master -f 
