@@ -9,9 +9,10 @@ jobs:
   git-repo-backup:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master
     - name: Backup
-      run: bash main.sh
+      uses: jenkins-zh/git-backup-actions@v0.0.1
       env:
-        GIT_DEPLOY_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
+        GIT_DEPLOY_KEY: ${{ secrets.GIT_DEPLOY_KEY }}
         TARGET_GIT: "git@gitee.com:sculpta/test.git"
