@@ -7075,6 +7075,9 @@ DOMAIN-SUFFIX,kubernetes.io,Proxy
 DOMAIN-SUFFIX,kubernetes-site.appspot.com,Proxy
 DOMAIN-SUFFIX,trello.com,Proxy
 DOMAIN-SUFFIX,leetcode.com,Proxy
+DOMAIN-SUFFIX,topcoder.com,Proxy
+DOMAIN-SUFFIX,atcoder.jp,Proxy
+DOMAIN-SUFFIX,codeforces.com,Proxy
 
 DOMAIN-SUFFIX,awseducate.com,Proxy
 DOMAIN-SUFFIX,digitalocean.com,Proxy
