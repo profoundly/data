@@ -50,7 +50,7 @@
             "padding": "10, 10, 0, 10", // 左，上，右，下
             "snapOnInput": true,
             "suppressApplicationTitle": true, // 禁止 shell 更改标题
-            "startingDirectory": "%USERPROFILE%"
+            "startingDirectory": "."
         },
         "list": [
             {
@@ -74,18 +74,19 @@
                 "tabTitle": "Git Bash",
                 "commandline": "D:\\Git\\bin\\bash.exe",
                 "icon": "D:\\Git\\mingw64\\share\\git\\git-for-windows.ico",
-                "startingDirectory": "%GIT_REPO%"
+                // "startingDirectory": "%GIT_REPO%"
+                "startingDirectory": "."
             },
-            {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "tabTitle": "Ubuntu",
-                "source": "Windows.Terminal.Wsl",
-                "icon": "C:\\Users\\shenke\\Pictures\\resource\\ubuntu_sm.png",
-                "padding": "10, 20, 0, 10",
-                "startingDirectory": "C:\\Users\\shenke\\AppData\\Local\\Packages\\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\\LocalState\\rootfs\\home\\shenke"
-            },
+            // {
+            //     "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+            //     "hidden": false,
+            //     "name": "Ubuntu",
+            //     "tabTitle": "Ubuntu",
+            //     "source": "Windows.Terminal.Wsl",
+            //     "icon": "C:\\Users\\shenke\\Pictures\\resource\\ubuntu_sm.png",
+            //     "padding": "10, 20, 0, 10",
+            //     "startingDirectory": "C:\\Users\\shenke\\AppData\\Local\\Packages\\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\\LocalState\\rootfs\\home\\shenke"
+            // },
             // {
             //     "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
             //     "hidden": false,
@@ -157,7 +158,7 @@
         // Press Ctrl+Shift+F to open the search box
         {
             "command": "find",
-            "keys": "ctrl+shift+f"
+            "keys": "ctrl+f"
         },
         // Press Alt+Shift+D to open a new pane.
         // - "split": "auto" makes this pane open in the direction that provides the most surface area.
